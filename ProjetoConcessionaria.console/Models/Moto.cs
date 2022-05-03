@@ -12,7 +12,6 @@ namespace ProjetoConcessionaria.Models
             SetAno(ano);
             SetQuilometragem(quilometragem);
             SetCor(cor);
-            SetValor(valor);
             SetCilindrada(cilindrada);
             SetPartida(partida);
         }
@@ -39,10 +38,10 @@ namespace ProjetoConcessionaria.Models
 
         public override double CalcularValor()
         {
-            Valor = (Cilindrada * 50);
+
             if (Partida == "injecao eletronica")
             {
-                Valor = Valor * 1.1;
+                Valor = (Valor + (Cilindrada * 50)) * 1.1;
             }
             return Valor;
         }

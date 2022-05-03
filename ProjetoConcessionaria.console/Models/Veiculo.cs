@@ -4,7 +4,7 @@ namespace ProjetoConcessionaria.Models
     {
         protected string Marca { get; set; }
         protected string Modelo { get; set; }
-        protected DateTime Ano { get; set; }
+        protected string Ano { get; set; }
         protected int Quilometragem { get; set; }
         protected string Cor { get; set; }
         protected double Valor { get; set; }
@@ -41,10 +41,10 @@ namespace ProjetoConcessionaria.Models
 
         public void SetAno(string ano)
         {
-            Ano = DateTime.Parse(ano);
+            Ano = ano;
         }
 
-        public DateTime GetAno()
+        public string GetAno()
         {
             return Ano;
         }
