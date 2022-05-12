@@ -2,10 +2,10 @@ namespace ProjetoConcessionaria.Models
 {
     public class Cliente : Pessoa
     {
-        private string Email { get; set; }
-        private string Telefone { get; set; }
+        public string Email { get; set; }
+        public string Telefone { get; set; }
 
-          public Cliente(string nome, string cpf, string dataNascimento, string email, string telefone) : base(nome, cpf, dataNascimento)
+        public Cliente(string nome, string cpf, string dataNascimento, string email, string telefone) : base(nome, cpf, dataNascimento)
         {
             SetNome(nome);
             SetCPF(cpf);
@@ -13,6 +13,12 @@ namespace ProjetoConcessionaria.Models
             SetEmail(email);
             SetTelefone(telefone);
         }
+
+        public Cliente()
+        {
+
+        }
+
 
         public void SetEmail(string email)
         {

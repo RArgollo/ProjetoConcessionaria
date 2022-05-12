@@ -2,8 +2,8 @@ namespace ProjetoConcessionaria.Models
 {
     public class Moto : Veiculo
     {
-        private int Cilindrada { get; set; }
-        private string Partida { get; set; }
+        public int Cilindrada { get; set; }
+        public string Partida { get; set; }
 
         public Moto(string marca, string modelo, string ano, int quilometragem, string cor, double valor, int cilindrada, string partida) : base(marca, modelo, ano, quilometragem, cor, valor)
         {
@@ -14,6 +14,11 @@ namespace ProjetoConcessionaria.Models
             SetCor(cor);
             SetCilindrada(cilindrada);
             SetPartida(partida);
+        }
+
+        public Moto()
+        {
+            
         }
 
         public void SetCilindrada(int cilindrada)
