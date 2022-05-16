@@ -1,3 +1,4 @@
+using ProjetoConcessionaria.console.Exceptions;
 namespace ProjetoConcessionaria.Models
 {
     public class Veiculo
@@ -21,7 +22,6 @@ namespace ProjetoConcessionaria.Models
 
         public Veiculo()
         {
-            
         }
 
         public void SetMarca(string marca)
@@ -46,7 +46,7 @@ namespace ProjetoConcessionaria.Models
 
         public void SetAno(string ano)
         {
-            Ano = ano;
+            ValidarAno(ano);
         }
 
         public string GetAno()
@@ -76,7 +76,7 @@ namespace ProjetoConcessionaria.Models
 
         public void SetValor(double valor)
         {
-            Valor = valor;
+            ValidarValor(valor);
         }
 
         public double GetValor()
@@ -87,6 +87,23 @@ namespace ProjetoConcessionaria.Models
         public virtual double CalcularValor()
         {
             return Valor;
+        }
+
+        public void ValidarAno(string ano)
+        {
+            var anoData = DateTime.Parse(ano);
+            if (anoData.Year > 2004)
+            {
+                Ano = ano;
+            }
+            else
+            {
+                throw new InputInvalidoException("Ano deve ser maior que 2004");
+            }
+        }
+
+        public virtual void ValidarValor(double valor){
+
         }
     }
 }

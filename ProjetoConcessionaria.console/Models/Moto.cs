@@ -1,3 +1,4 @@
+using ProjetoConcessionaria.console.Exceptions;
 namespace ProjetoConcessionaria.Models
 {
     public class Moto : Veiculo
@@ -18,7 +19,7 @@ namespace ProjetoConcessionaria.Models
 
         public Moto()
         {
-            
+
         }
 
         public void SetCilindrada(int cilindrada)
@@ -49,6 +50,15 @@ namespace ProjetoConcessionaria.Models
                 Valor = (Valor + (Cilindrada * 50)) * 1.1;
             }
             return Valor;
+        }
+
+        public override void ValidarValor(double valor)
+        {
+            if (valor < 2000)
+            {
+                throw new InputInvalidoException("Valor deve ser maior que 5mil");
+            }
+            Valor = valor;
         }
     }
 }

@@ -1,3 +1,4 @@
+using ProjetoConcessionaria.console.Exceptions;
 using ProjetoConcessionaria.Models;
 using Microsoft.AspNetCore.Mvc;
 namespace ProjetoConcessionaria.web.Controllers
@@ -9,10 +10,19 @@ namespace ProjetoConcessionaria.web.Controllers
         public static List<Moto> Motos { get; set; } = new List<Moto>();
 
         [HttpPost("AddMoto")]
-        public IActionResult AddMoto(Moto moto)
+        public IActionResult AddMoto(string ano, double valor)
         {
-            Motos.Add(moto);
-            return Ok(Motos);
+            try
+            {
+                var moto = new Moto("Yamaha", "XT 660", ano, 12000, "Azul", valor, 660, "injecao eletronica"); 
+                Motos.Add(moto);
+                return Ok(Motos);
+            }
+            catch (InputInvalidoException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
 
         [HttpGet("GetListMotos")]
@@ -24,7 +34,7 @@ namespace ProjetoConcessionaria.web.Controllers
         [HttpDelete("DeleteMoto")]
         public IActionResult DeleteMoto()
         {
-            Motos.RemoveAt(Motos.Count -1);
+            Motos.RemoveAt(Motos.Count - 1);
             return Ok(Motos);
         }
 

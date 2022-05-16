@@ -1,3 +1,4 @@
+using ProjetoConcessionaria.console.Exceptions;
 namespace ProjetoConcessionaria.Models
 {
     public class Carro : Veiculo
@@ -18,7 +19,7 @@ namespace ProjetoConcessionaria.Models
 
         public Carro()
         {
-            
+
         }
 
         public void SetTransmissaoAutomatica(bool transmissaoAutomatica)
@@ -48,6 +49,15 @@ namespace ProjetoConcessionaria.Models
                 Valor = Valor * 1.20;
             }
             return Valor;
+        }
+
+        public override void ValidarValor(double valor)
+        {
+            if (valor < 5000)
+            {
+                throw new InputInvalidoException("Valor deve ser maior que 5mil");
+            }
+            Valor = valor;
         }
     }
 }

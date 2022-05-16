@@ -1,3 +1,4 @@
+using ProjetoConcessionaria.console.Exceptions;
 using ProjetoConcessionaria.Models;
 using Microsoft.AspNetCore.Mvc;
 namespace ProjetoConcessionaria.web.Controllers
@@ -9,10 +10,18 @@ namespace ProjetoConcessionaria.web.Controllers
         public static List<Cliente> Clientes { get; set; } = new List<Cliente>();
 
         [HttpPost("AddCliente")]
-        public IActionResult AddCliente(Cliente cliente)
+        public IActionResult AddCliente (string telefone, string email)
         {
-            Clientes.Add(cliente);
-            return Ok(Clientes);
+            try
+            {
+                var cliente = new Cliente("Argollo", "12345678977", "19/11/2001", email, telefone);
+                Clientes.Add(cliente);
+                return Ok(Clientes);
+            }
+            catch (InputInvalidoException ex)
+            {
+                BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("GetListClientes")]
@@ -24,7 +33,7 @@ namespace ProjetoConcessionaria.web.Controllers
         [HttpDelete("DeleteCliente")]
         public IActionResult DeleteCliente()
         {
-            Clientes.RemoveAt(Clientes.Count -1);
+            Clientes.RemoveAt(Clientes.Count - 1);
             return Ok(Clientes);
         }
 

@@ -1,3 +1,4 @@
+using ProjetoConcessionaria.console.Exceptions;
 namespace ProjetoConcessionaria.Models
 {
     public class Cliente : Pessoa
@@ -22,7 +23,7 @@ namespace ProjetoConcessionaria.Models
 
         public void SetEmail(string email)
         {
-            Email = email;
+            ValidacaoEmail(email);
         }
 
         public string GetEmail()
@@ -32,12 +33,33 @@ namespace ProjetoConcessionaria.Models
 
         public void SetTelefone(string telefone)
         {
-            Telefone = telefone;
+           ValidacaoTelefone(telefone);
         }
 
         public string GetTelefone()
         {
             return Telefone;
+        }
+
+        public void ValidacaoTelefone(string telefone)
+        {
+            if (telefone.Length < 8 || telefone.Length < 15)
+            {
+                Telefone = telefone;
+            }
+            else
+            {
+                throw new InputInvalidoException("Telefone deve ter entre 8 e 15 dígitos");
+            }
+        }
+
+        public void ValidacaoEmail(string email){
+            if (email.Contains("@")){
+                Email = email;
+            }
+            else{
+                throw new InputInvalidoException("Email inválido");
+            }
         }
     }
 }
