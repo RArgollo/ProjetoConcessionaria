@@ -91,7 +91,7 @@ namespace ProjetoConcessionaria.Models
 
         public void ValidarAno(string ano)
         {
-            var anoData = DateTime.Parse(ano);
+            var anoData = DateTime.Parse($"01/01/{ano}");
             if (anoData.Year > 2004)
             {
                 Ano = ano;

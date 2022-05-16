@@ -20,7 +20,7 @@ namespace ProjetoConcessionaria.web.Controllers
             }
             catch (InputInvalidoException ex)
             {
-                BadRequest(ex.Message);
+               return BadRequest(ex.Message);
             }
         }
 

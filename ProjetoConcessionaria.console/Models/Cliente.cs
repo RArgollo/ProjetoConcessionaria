@@ -33,7 +33,7 @@ namespace ProjetoConcessionaria.Models
 
         public void SetTelefone(string telefone)
         {
-           ValidacaoTelefone(telefone);
+            ValidacaoTelefone(telefone);
         }
 
         public string GetTelefone()
@@ -45,19 +45,23 @@ namespace ProjetoConcessionaria.Models
         {
             if (telefone.Length < 8 || telefone.Length < 15)
             {
-                Telefone = telefone;
+
+                throw new InputInvalidoException("Telefone deve ter entre 8 e 15 dígitos");
             }
             else
             {
-                throw new InputInvalidoException("Telefone deve ter entre 8 e 15 dígitos");
+                Telefone = telefone;
             }
         }
 
-        public void ValidacaoEmail(string email){
-            if (email.Contains("@")){
+        public void ValidacaoEmail(string email)
+        {
+            if (email.Contains("@"))
+            {
                 Email = email;
             }
-            else{
+            else
+            {
                 throw new InputInvalidoException("Email inválido");
             }
         }
