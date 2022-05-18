@@ -3,8 +3,8 @@ namespace ProjetoConcessionaria.Models
 {
     public class Cliente : Pessoa
     {
-        public string Email { get; set; }
-        public string Telefone { get; set; }
+        private string Email { get; set; }
+        private string Telefone { get; set; }
 
         public Cliente(string nome, string cpf, string dataNascimento, string email, string telefone) : base(nome, cpf, dataNascimento)
         {
@@ -14,12 +14,6 @@ namespace ProjetoConcessionaria.Models
             SetEmail(email);
             SetTelefone(telefone);
         }
-
-        public Cliente()
-        {
-
-        }
-
 
         public void SetEmail(string email)
         {
@@ -43,7 +37,7 @@ namespace ProjetoConcessionaria.Models
 
         public void ValidacaoTelefone(string telefone)
         {
-            if (telefone.Length < 8 || telefone.Length < 15)
+            if (telefone.Length < 8 || telefone.Length > 15)
             {
 
                 throw new InputInvalidoException("Telefone deve ter entre 8 e 15 dígitos");

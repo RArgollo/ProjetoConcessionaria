@@ -1,21 +1,22 @@
 using ProjetoConcessionaria.console.Exceptions;
 using ProjetoConcessionaria.Models;
 using Microsoft.AspNetCore.Mvc;
+using ProjetoConcessionaria.web.DTOs;
 namespace ProjetoConcessionaria.web.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class MotoController : ControllerBase
     {
-        public static List<Moto> Motos { get; set; } = new List<Moto>();
+        public static List<MotoDTO> Motos { get; set; } = new List<MotoDTO>();
 
         [HttpPost("AddMoto")]
-        public IActionResult AddMoto(string ano, double valor)
+        public IActionResult AddMoto(MotoDTO motoDto)
         {
             try
             {
-                var moto = new Moto("Yamaha", "XT 660", ano, 12000, "Azul", valor, 660, "injecao eletronica"); 
-                Motos.Add(moto);
+                var moto = new Moto(motoDto.Marca, motoDto.Modelo, motoDto.Ano, motoDto.Quilometragem, motoDto.Cor, motoDto.Valor, motoDto.Cilindrada, motoDto.Partida); 
+                Motos.Add(motoDto);
                 return Ok(Motos);
             }
             catch (InputInvalidoException ex)

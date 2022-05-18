@@ -3,8 +3,8 @@ namespace ProjetoConcessionaria.Models
 {
     public class Carro : Veiculo
     {
-        public bool TransmissaoAutomatica { get; set; }
-        public string Combustivel { get; set; }
+        private bool TransmissaoAutomatica { get; set; }
+        private string Combustivel { get; set; }
         public Carro(string marca, string modelo, string ano, int quilometragem, string cor, double valor, string combustivel, bool transmissaoAutomatica) : base(marca, modelo, ano, quilometragem, cor, valor)
         {
             SetMarca(marca);
@@ -17,10 +17,6 @@ namespace ProjetoConcessionaria.Models
             SetTransmissaoAutomatica(transmissaoAutomatica);
         }
 
-        public Carro()
-        {
-
-        }
 
         public void SetTransmissaoAutomatica(bool transmissaoAutomatica)
         {

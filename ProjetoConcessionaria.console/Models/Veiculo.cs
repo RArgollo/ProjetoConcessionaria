@@ -3,12 +3,12 @@ namespace ProjetoConcessionaria.Models
 {
     public class Veiculo
     {
-        public string Marca { get; set; }
-        public string Modelo { get; set; }
-        public string Ano { get; set; }
-        public int Quilometragem { get; set; }
-        public string Cor { get; set; }
-        public double Valor { get; set; }
+        protected string Marca { get; set; }
+        protected string Modelo { get; set; }
+        protected string Ano { get; set; }
+        protected int Quilometragem { get; set; }
+        protected string Cor { get; set; }
+        protected double Valor { get; set; }
 
         public Veiculo(string marca, string modelo, string ano, int quilometragem, string cor, double valor)
         {
@@ -18,10 +18,6 @@ namespace ProjetoConcessionaria.Models
             SetQuilometragem(quilometragem);
             SetCor(cor);
             SetValor(valor);
-        }
-
-        public Veiculo()
-        {
         }
 
         public void SetMarca(string marca)
@@ -92,13 +88,13 @@ namespace ProjetoConcessionaria.Models
         public void ValidarAno(string ano)
         {
             var anoData = DateTime.Parse($"01/01/{ano}");
-            if (anoData.Year > 2004)
+            if (anoData.Year > 2004 && anoData < DateTime.Now.AddYears(1))
             {
                 Ano = ano;
             }
             else
             {
-                throw new InputInvalidoException("Ano deve ser maior que 2004");
+                throw new InputInvalidoException("Ano deve ser maior que 2004 e menor ou igual ao ano atual");
             }
         }
 

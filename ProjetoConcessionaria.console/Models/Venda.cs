@@ -2,11 +2,11 @@ namespace ProjetoConcessionaria.Models
 {
     public class Venda
     {
-        public Cliente Comprador { get; set; }
-        public Funcionario Vendedor { get; set; }
-        public Veiculo Veiculo { get; set; }
-        public string FormaPagamento { get; set; }
-        public double ValorFinal { get; set; }
+        private Cliente Comprador { get; set; }
+        private Funcionario Vendedor { get; set; }
+        private Veiculo Veiculo { get; set; }
+        private string FormaPagamento { get; set; }
+        private double ValorFinal { get; set; }
 
         public Venda(Cliente comprador, Funcionario vendedor, Veiculo veiculo, string formaPagamento, double valorFinal)
         {
@@ -15,11 +15,6 @@ namespace ProjetoConcessionaria.Models
             SetVeiculo(veiculo);
             SetFormaPagamento(formaPagamento);
             SetValorFinal(valorFinal);
-        }
-
-        public Venda()
-        {
-
         }
 
         public void SetComprador(Cliente comprador)

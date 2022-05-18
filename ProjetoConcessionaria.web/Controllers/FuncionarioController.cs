@@ -1,17 +1,19 @@
 using ProjetoConcessionaria.Models;
 using Microsoft.AspNetCore.Mvc;
+using ProjetoConcessionaria.web.DTOs;
 namespace ProjetoConcessionaria.web.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class FuncionarioController : ControllerBase
     {
-        public static List<Funcionario> Funcionarios { get; set; } = new List<Funcionario>();
+        public static List<FuncionarioDTO> Funcionarios { get; set; } = new List<FuncionarioDTO>();
 
         [HttpPost("AddFuncionario")]
-        public IActionResult AddFuncionario(Funcionario funcionario)
+        public IActionResult AddFuncionario(FuncionarioDTO funcionarioDto)
         {
-            Funcionarios.Add(funcionario);
+            var funcionario = new Funcionario(funcionarioDto.Nome, funcionarioDto.CPF, funcionarioDto.DataNascimento, funcionarioDto.Cargo);
+            Funcionarios.Add(funcionarioDto);
             return Ok(Funcionarios);
         }
 
