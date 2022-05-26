@@ -1,5 +1,6 @@
-using ProjetoConcessionaria.console.Exceptions;
-namespace ProjetoConcessionaria.Models
+using ProjetoConcessionaria.Lib.Exceptions;
+
+namespace ProjetoConcessionaria.Lib.Models
 {
     public class Veiculo
     {
@@ -98,7 +99,8 @@ namespace ProjetoConcessionaria.Models
             }
         }
 
-        public virtual void ValidarValor(double valor){
+        public virtual void ValidarValor(double valor)
+        {
 
         }
     }

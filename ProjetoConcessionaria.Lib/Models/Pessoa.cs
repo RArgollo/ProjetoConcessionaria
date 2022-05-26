@@ -1,7 +1,8 @@
-namespace ProjetoConcessionaria.Models
+namespace ProjetoConcessionaria.Lib.Models
 {
     public class Pessoa
     {
+
         protected string Nome { get; set; }
         protected string CPF { get; set; }
         protected DateTime DataNascimento { get; set; }

@@ -1,5 +1,5 @@
-using ProjetoConcessionaria.Models;
 using Microsoft.AspNetCore.Mvc;
+using ProjetoConcessionaria.Lib.Models;
 using ProjetoConcessionaria.web.DTOs;
 namespace ProjetoConcessionaria.web.Controllers
 {
@@ -26,7 +26,7 @@ namespace ProjetoConcessionaria.web.Controllers
         [HttpDelete("DeleteFuncionario")]
         public IActionResult DeleteFuncionario()
         {
-            Funcionarios.RemoveAt(Funcionarios.Count -1);
+            Funcionarios.RemoveAt(Funcionarios.Count - 1);
             return Ok(Funcionarios);
         }
 

@@ -1,6 +1,5 @@
-using ProjetoConcessionaria.Models;
 using Microsoft.AspNetCore.Mvc;
-using ProjetoConcessionaria.web.DTOs;
+using ProjetoConcessionaria.Lib.Models;
 namespace ProjetoConcessionaria.web.Controllers
 {
     [ApiController]
@@ -25,7 +24,7 @@ namespace ProjetoConcessionaria.web.Controllers
         [HttpDelete("DeleteVenda")]
         public IActionResult DeleteVenda()
         {
-            Vendas.RemoveAt(Vendas.Count -1);
+            Vendas.RemoveAt(Vendas.Count - 1);
             return Ok(Vendas);
         }
 

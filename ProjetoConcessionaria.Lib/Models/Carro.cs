@@ -1,10 +1,12 @@
-using ProjetoConcessionaria.console.Exceptions;
-namespace ProjetoConcessionaria.Models
+using ProjetoConcessionaria.Lib.Exceptions;
+
+namespace ProjetoConcessionaria.Lib.Models
 {
     public class Carro : Veiculo
     {
         private bool TransmissaoAutomatica { get; set; }
         private string Combustivel { get; set; }
+        public virtual Venda Venda { get; set; }
         public Carro(string marca, string modelo, string ano, int quilometragem, string cor, double valor, string combustivel, bool transmissaoAutomatica) : base(marca, modelo, ano, quilometragem, cor, valor)
         {
             SetMarca(marca);

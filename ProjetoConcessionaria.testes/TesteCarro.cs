@@ -1,6 +1,6 @@
-using ProjetoConcessionaria.console.Exceptions;
 using Xunit;
-using ProjetoConcessionaria.Models;
+using ProjetoConcessionaria.Lib.Models;
+using ProjetoConcessionaria.Lib.Exceptions;
 namespace ProjetoConcessionaria.testes;
 
 public class TesteCarro

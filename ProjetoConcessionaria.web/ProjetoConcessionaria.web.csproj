@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProjetoConcessionaria.console\ProjetoConcessionaria.csproj" />
+    <ProjectReference Include="..\ProjetoConcessionaria.Lib\ProjetoConcessionaria.Lib.csproj" />
   </ItemGroup>
 
 </Project>

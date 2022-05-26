@@ -1,10 +1,13 @@
-using ProjetoConcessionaria.console.Exceptions;
-namespace ProjetoConcessionaria.Models
+using ProjetoConcessionaria.Lib.Exceptions;
+
+namespace ProjetoConcessionaria.Lib.Models
 {
+
     public class Cliente : Pessoa
     {
         private string Email { get; set; }
         private string Telefone { get; set; }
+        public virtual List<Venda> Vendas { get; set; }
 
         public Cliente(string nome, string cpf, string dataNascimento, string email, string telefone) : base(nome, cpf, dataNascimento)
         {

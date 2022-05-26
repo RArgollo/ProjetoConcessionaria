@@ -1,4 +1,4 @@
-namespace ProjetoConcessionaria.Models
+namespace ProjetoConcessionaria.Lib.Models
 {
     public class Venda
     {
@@ -7,6 +7,8 @@ namespace ProjetoConcessionaria.Models
         private Veiculo Veiculo { get; set; }
         private string FormaPagamento { get; set; }
         private double ValorFinal { get; set; }
+        public virtual List<Carro> Carros { get; set; }
+        public virtual List<Moto> Motos { get; set; }
 
         public Venda(Cliente comprador, Funcionario vendedor, Veiculo veiculo, string formaPagamento, double valorFinal)
         {

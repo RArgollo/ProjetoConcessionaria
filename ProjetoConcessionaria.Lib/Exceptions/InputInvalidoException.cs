@@ -1,4 +1,4 @@
-namespace ProjetoConcessionaria.console.Exceptions
+namespace ProjetoConcessionaria.Lib.Exceptions
 {
     public class InputInvalidoException : Exception
     {
@@ -9,7 +9,7 @@ namespace ProjetoConcessionaria.console.Exceptions
 
         public InputInvalidoException()
         {
-            
+
         }
     }
 }

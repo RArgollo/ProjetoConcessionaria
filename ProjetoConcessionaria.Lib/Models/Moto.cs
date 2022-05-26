@@ -1,10 +1,13 @@
-using ProjetoConcessionaria.console.Exceptions;
-namespace ProjetoConcessionaria.Models
+using ProjetoConcessionaria.Lib.Exceptions;
+
+namespace ProjetoConcessionaria.Lib.Models
 {
     public class Moto : Veiculo
     {
         private int Cilindrada { get; set; }
         private string Partida { get; set; }
+
+        public virtual Venda Venda { get; set; }
 
         public Moto(string marca, string modelo, string ano, int quilometragem, string cor, double valor, int cilindrada, string partida) : base(marca, modelo, ano, quilometragem, cor, valor)
         {

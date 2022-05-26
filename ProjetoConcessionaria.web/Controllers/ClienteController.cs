@@ -1,6 +1,6 @@
-using ProjetoConcessionaria.console.Exceptions;
-using ProjetoConcessionaria.Models;
 using Microsoft.AspNetCore.Mvc;
+using ProjetoConcessionaria.Lib.Exceptions;
+using ProjetoConcessionaria.Lib.Models;
 using ProjetoConcessionaria.web.DTOs;
 namespace ProjetoConcessionaria.web.Controllers
 {
@@ -9,6 +9,12 @@ namespace ProjetoConcessionaria.web.Controllers
     public class ClienteController : ControllerBase
     {
         public static List<ClienteDTO> Clientes { get; set; } = new List<ClienteDTO>();
+         public static ILogger<ClienteController> Log { get; set; }
+
+         public ClienteController(ILogger<ClienteController> log)
+         {
+             Log = log;
+         }
 
         [HttpPost("AddCliente")]
         public IActionResult AddCliente (ClienteDTO clienteDto)
@@ -21,6 +27,7 @@ namespace ProjetoConcessionaria.web.Controllers
             }
             catch (InputInvalidoException ex)
             {
+                Log.LogError(ex.Message);
                return BadRequest(ex.Message);
             }
         }
